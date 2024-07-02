@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {  Montserrat, Averia_Serif_Libre } from "next/font/google";
 import "./globals.css";
 import { useLocale } from "next-intl";
+import Sidebar from "@/components/layout/Sidebar";
 
-const inter = Inter({ subsets: ["latin"] });
+const  montserrat =  Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +19,14 @@ export default function RootLayout({
   const locale = useLocale();
   return (
     <html lang={locale}>
-      <body className={inter.className}>{children}</body>
+      <body className={ montserrat.className}>
+        <div className="flex gap-1">
+          <div className="w-[15%]">
+            <Sidebar />
+          </div>
+          <div className="bg-blue-200 w-[85%]">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }
