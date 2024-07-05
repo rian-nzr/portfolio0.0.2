@@ -21,10 +21,10 @@ export default function RootLayout({
     <html lang={locale}>
       <body className={ montserrat.className}>
         <div className="flex gap-1">
-          <div className="w-[15%]">
+          <div className="w-[13%]">
             <Sidebar />
           </div>
-          <div className="bg-blue-200 w-[85%]">{children}</div>
+          <div className="bg-blue-200 w-[100%]">{children}</div>
         </div>
       </body>
     </html>
