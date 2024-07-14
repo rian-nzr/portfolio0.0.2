@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import {  Montserrat, Averia_Serif_Libre } from "next/font/google";
+import { Montserrat, Averia_Serif_Libre } from "next/font/google";
 import "./globals.css";
 import { useLocale } from "next-intl";
 import Sidebar from "@/components/layout/Sidebar";
+import { ThemeProvider } from "@/components/layout/layout";
 
-const  montserrat =  Montserrat({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,13 +20,19 @@ export default function RootLayout({
   const locale = useLocale();
   return (
     <html lang={locale}>
-      <body className={ montserrat.className}>
-        <div className="flex gap-1">
-          <div className="w-[13%]">
-            <Sidebar />
+      <body className={`${montserrat.className}`}>
+        <ThemeProvider>
+          <div className="flex gap-5 relative">
+            {/* <div className="fixed right-0 bg top  52 " /> */}
+            <div className="w-[13%] sticky top-0 bg-white">
+              <Sidebar />
+            </div>
+
+            <div className="bg-black/20 w-[100%] h-[96vh] my-5 mr-5 backdrop-blur-md overflow-auto rounded-[35px] p-8">
+              {children}
+            </div>
           </div>
-          <div className="bg-blue-200 w-[100%]">{children}</div>
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );
