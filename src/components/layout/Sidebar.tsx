@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Montserrat, Averia_Serif_Libre } from "next/font/google";
 import { File, House, PhoneCall, User, Wrench } from "phosphor-react";
+import SelectMenu from "../Input/selectMenu";
 
 const averia = Averia_Serif_Libre({
   subsets: ["latin"],
@@ -48,7 +49,7 @@ export default function Sidebar() {
           />
         </div>
         <div className="">
-          <ul className="flex flex-col gap-4 px-2">
+          <ul className="flex flex-col gap-4 px-2 font-medium rounded-lg text-black">
             {menuItems.map((item, index) => (
               <li
                 key={index}
@@ -58,10 +59,14 @@ export default function Sidebar() {
                 {item.text}
               </li>
             ))}
+            <li className="border-t py-2">
+              <span className="text-sm ml-1 px-2 ">Theme</span>
+              <SelectMenu />
+            </li>
           </ul>
         </div>
       </div>
-      <div className="flex items-center p-2 mt-12  space-x-4 justify-self-end">
+      <div className="flex items-center p-2 mt-12 mb-5  space-x-4 justify-self-end">
         <img
           src="https://i.pinimg.com/564x/24/6e/11/246e113d041f6e3c2d521a421c879fae.jpg"
           alt=""
