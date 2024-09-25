@@ -24,7 +24,7 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="flex gap-5 relative">
             {/* <div className="fixed right-0 bg top  52 " /> */}
-            <div className="w-[13%] sticky top-0 bg-white">
+            <div className="w-[13%] sticky top-0 ">
               <Sidebar />
             </div>
 
